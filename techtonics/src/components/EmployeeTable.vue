@@ -45,4 +45,8 @@ import FetchData from '@/components/FetchData.js'
 
 </script>
 
-<style scoped></style>
+<style scoped>
+table, th, td {
+  border: 1px solid black;
+}
+</style>

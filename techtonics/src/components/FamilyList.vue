@@ -1,37 +1,11 @@
 <template>
   <b-nav-item-dropdown text="Categories" right>
-          <b-dropdown-item href="#">Swarajit</b-dropdown-item>
+          <b-dropdown-item v-for ="post of posts.slice(0, 6)" href="#" overflow: scroll> {{post.familyName}} 
+            <hr><br>
+          </b-dropdown-item>
 	
-        </b-nav-item-dropdown>
+  </b-nav-item-dropdown>
 </template>
-console.log("hi")
-import FetchData from '@/components/FetchData.js'
-
-<script>
-  export default {
-  
-  name: 'Markdown',
-  preserveWhitespace: false,
-    name: 'employee-table',
-  }
-
-</script>
-
-<style scoped></style>
-
-
-
-<template v-slot:sidebar>
- <table style="width:auto">
- <tr>
-	<th>Family ID</th>
-	<th>Family Name</th>
-<tr>
-  <tr v-for="post of posts.slice(0, 7)">
-    <td>{{post.familyID}}</td>
-    <td>{{post.familyName}}</strong></td>
-  </tr>
-</table> 
 <!---
   <ul>
 	<li v-for="post of posts.slice(2, 5)">
@@ -40,17 +14,12 @@ import FetchData from '@/components/FetchData.js'
     </li>
   </ul>
 ---->
-</template>
 
 <script>
 import axios from 'axios';
 
 export default {
- name: 'example-component',
- 
-  name: 'Markdown',
-  preserveWhitespace: false,
-
+ name: 'family-list',
   data() {
     return {
       posts: [],
@@ -63,13 +32,14 @@ export default {
    const options = {
   headers: {'Access-Control-Allow-Origin': '*'}
 };
-console.log("Hi");
+//console.log("Hi");
   //axios.get('http://dummy.restapiexample.com/api/v1/employees',options)
   //axios.get('http://applicationsearchroute-enceladus.inmbzp8022.in.dst.ibm.com/api/hello/',options)
     axios.get('http://localhost:8083/api/hello',options).then(response => {
       // JSON responses are automatically parsed.
       this.posts = response.data
     })
+    //console.log(this.posts.slice(0).familyName);
    // .catch(e => {
     //  this.errors.push(e)
   //  })
@@ -78,7 +48,7 @@ console.log("Hi");
 	 // axios.get('http://dummy.restapiexample.com/api/v1/employees////',options).then(response => response.data)
   //.then(json => console.log(json))
   
-console.log(this.posts);
+//console.log(this.posts);
     // async / await version (created() becomes async created())
     //
     // try {
@@ -95,4 +65,5 @@ console.log(this.posts);
 table, th, td {
   border: 1px solid black;
 }
+
 </style>

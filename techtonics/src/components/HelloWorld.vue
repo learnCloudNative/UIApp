@@ -6,6 +6,7 @@
 <!--<employee-table />--->
 <!--<aside><example-component/></aside>-->
 <div class="fam"><family-image/></div>
+<aside><employee-table /></aside>
 </span>
 </html>
 </template>
@@ -60,14 +61,17 @@ a {
 }
 
 aside {
-  float: auto;
+ /* float: auto;
 
             position: fixed; 
             background-color: yellow; 
             top: 50%; 
             left: 50%; 
             margin-top: -100px; 
-            margin-left: -200px; 
+            margin-left: -200px; */
+            position: absolute;
+            bottom:0px;
+            right:0px;
 }
 
 .fam {

@@ -1,15 +1,16 @@
 <template>
   <b-navbar class="forcol" toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">Techtonic</b-navbar-brand>
+    <b-navbar-brand href="#">Container Crush:Team Enceladus</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <!--<b-nav-item href="#">Link</b-nav-item> -->
-		<b-nav-item-dropdown text="Team Members" right>
+	<!--	<b-nav-item-dropdown text="Team Members" right>
           <b-dropdown-item href="#">Swarajit</b-dropdown-item>
 		  <hr>
+      
           <b-dropdown-item href="#">Susmita</b-dropdown-item>
 		  <hr>
           <b-dropdown-item href="#">Oilivi</b-dropdown-item>
@@ -29,9 +30,19 @@
 		  <hr>
           <b-dropdown-item href="#">Abhidip</b-dropdown-item>
 		  <hr>
-		  <b-dropdown-item href="#">Abinash</b-dropdown-item>
+		  <b-dropdown-item href="#">Abinash</b-dropdown-item> 
 	
-        </b-nav-item-dropdown>
+        </b-nav-item-dropdown>-->
+      <family-list/>
+     
+
+      <b-form-select  v-model="selected" >
+        <option :value="null">Please select a Category</option>
+        <option v-for="post in posts.slice(0,5)" >
+    {{ post.familyName }}
+  </option>
+      </b-form-select>
+
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -61,14 +72,39 @@
   </b-navbar>
 </template>
 
-<script>
-  export default {
-    name: 'Markdown',
-  preserveWhitespace: false,
-    name: 'navigation-bar',
-  }
 
+<script>
+import axios from 'axios';
+import FamilyList from '@/components/FamilyList.vue'
+ export default {
+    
+    components: {
+      FamilyList
+    },
+    data() {
+      return {
+        posts: [],
+        selected: null
+        
+        
+      }
+    },
+  
+created() {
+  const options = {
+  headers: {'Access-Control-Allow-Origin': '*'}
+};
+  axios.get('http://localhost:8083/api/hello',options).then(response => {
+      // JSON responses are automatically parsed.
+      this.posts = response.data
+    }),
+console.log("HI");
+console.log(this.posts.slice(0).familyName);
+
+}
+  }
 </script>
 
 <style scoped>
+
 </style>
