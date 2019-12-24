@@ -1,5 +1,6 @@
 FROM node:lts-alpine
 
+RUN apt-get install curl wget
 # install simple http server for serving static content
 RUN npm install -g http-server
 
