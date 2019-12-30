@@ -94,7 +94,7 @@ created() {
   const options = {
   headers: {'Access-Control-Allow-Origin': '*'}
 };
-  axios.get('http://localhost:8083/api/hello',options).then(response => {
+  axios.get(process.env.VUE_APP_URL.concat("/api/hello"),options).then(response => {
       // JSON responses are automatically parsed.
       this.posts = response.data
     }),

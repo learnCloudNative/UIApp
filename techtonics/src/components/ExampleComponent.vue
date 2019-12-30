@@ -43,7 +43,8 @@ export default {
 console.log("Hi");
   //axios.get('http://dummy.restapiexample.com/api/v1/employees',options)
   //axios.get('http://applicationsearchroute-enceladus.inmbzp8022.in.dst.ibm.com/api/hello/',options)
-    axios.get('http://localhost:8083/api/hello',options).then(response => {
+    axios.get(process.env.VUE_APP_URL.concat("/api/hello"),options).then(response => {
+     
       // JSON responses are automatically parsed.
       this.posts = response.data
     })
