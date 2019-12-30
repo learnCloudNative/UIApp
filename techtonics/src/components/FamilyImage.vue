@@ -33,7 +33,7 @@
         <img class="img-responsive" src="@/assets/clothing.png" alt="" width="350" height="250">
         <div class="overlay">
          <!--  <h2>Footwear</h2> -->
-           <a class="info" href="#">clothing</a>
+           <a class="info" href="/about">clothing</a>
 		</div>
     </div>
     </b-col>

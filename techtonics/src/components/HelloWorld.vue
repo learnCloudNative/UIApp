@@ -7,7 +7,6 @@
 <!--<aside><example-component/></aside>-->
 <div class="fam"><family-image/></div>
 <aside><employee-table /></aside>
-</span>
 </html>
 </template>
 

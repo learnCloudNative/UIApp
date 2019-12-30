@@ -1,4 +1,4 @@
-// The Vue build version to load with the `import` command
+  // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 //import the vue instance
 import Vue from 'vue'
@@ -8,6 +8,8 @@ import App from './App'
 import VueRouter from 'vue-router'
 
 import BootstrapVue from 'bootstrap-vue'
+
+import _ from 'lodash'
 
 Vue.use(BootstrapVue);
 
@@ -20,6 +22,7 @@ Vue.use(VueRouter)
 //define your routes
 //import the hello component
 import Hello from './components/HelloWorld'
+import About from './components/About'
 
 const options = {
   transformAssetUrls: {
@@ -40,7 +43,8 @@ const options = {
 //define your routes
 const routes = [
 //define the root url of the application.
-{ path: '/', component: Hello }
+{ path: '/', component: Hello },
+{ path: '/about', component: About }
 ]
 // Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
