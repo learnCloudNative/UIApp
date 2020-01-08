@@ -38,7 +38,7 @@
 
       <b-form-select  v-model="selected" >
         <option :value="null">Please select a Category</option>
-        <option v-for="post in posts.slice(0,5)" >
+        <option v-for="post in posts.slice(0,5)"  href="/{{post.familyName}}" >
     {{ post.familyName }}
   </option>
       </b-form-select>
