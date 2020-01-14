@@ -1,6 +1,9 @@
+Vue.forceUpdate();
 <template>
-  <b-navbar class="forcol" toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">Container Crush:Team Enceladus</b-navbar-brand>
+
+  <b-navbar class="forcol" toggleable="lg" type="dark" variant="dark" >
+    <b-navbar-brand href="/"><img src="@/assets/team_logo.png"  width="100" height="40">Container Crush:Team Enceladus
+</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -34,22 +37,56 @@
 	
         </b-nav-item-dropdown>-->
       <family-list/>
-     
 
+      <b-navbar-nav>
+        
+    
+
+ <!--       <div>
+     
+     <b-dropdown text="Categories" variant="primary" >
+
+                 
+                    
+            
+            
+               <b-dropdown-item  v-for ="post of posts.slice(0, 5)" :href="post.familyID">{{post.familyName}}
+                 
+                </b-dropdown-item >
+                
+                
+
+                  
+
+              
+            </b-dropdown>
+            </div>-->
+            </b-navbar-nav>
+   
+
+<!--
       <b-form-select  v-model="selected" >
         <option :value="null">Please select a Category</option>
-        <option v-for="post in posts.slice(0,5)" >
+        <option v-for="post in posts.slice(0,5)" href="/about">
     {{ post.familyName }}
   </option>
-      </b-form-select>
+      </b-form-select> -->
 
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+       <!-- <b-nav-form  action="/about"> -->
+       <b-nav-form >
+          <b-form-input size="sm" class="mr-sm-2" placeholder="Search" v-model="picked" v-on:submit.prevent="putData"><a href="/about"></a></b-form-input>
+          <!--<b-button size="sm" class="my-2 my-sm-0" v-on:click="changeHeader"> -->
+ <b-button  v-on:click="putData" ><a href="/about">Search </a>
+           <!-- <b-button size="sm" class="my-2 my-sm-0" v-on:click="addTodo()">Search-->
+            
+            
+            
+            </b-button>
+          <!--<span>Picked: {{ picked }}</span>-->
         </b-nav-form>
 
         <b-nav-item-dropdown text="Lang" right>
@@ -70,25 +107,46 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
+ 
 </template>
 
 
+
 <script>
+const options = {
+  headers: {'Access-Control-Allow-Origin': '*'}
+};
 import axios from 'axios';
 import FamilyList from '@/components/FamilyList.vue'
+import Categories from '@/components/Categories.vue'
+
  export default {
-    
-    components: {
-      FamilyList
+  
+        components: {
+      FamilyList,Categories
     },
     data() {
       return {
         posts: [],
-        selected: null
+        commodities: [],
+        selected: null,
+        picked:null,
+
         
         
       }
     },
+    methods: {
+      
+    putData:function() {
+     axios.get("http://localhost:9000/api/uiSearchPOST/".concat(this.picked),options).then(response => {
+      // JSON responses are automatically parsed.
+      this.commodities = response.data
+       this.$forceUpdate();
+    })
+    setTimeout( () => this.$router.push({ href: '/about'}), 200);
+      
+    }},
   
 created() {
   const options = {
@@ -98,8 +156,15 @@ created() {
       // JSON responses are automatically parsed.
       this.posts = response.data
     }),
+    axios.get(process.env.VUE_APP_URL.concat("/api/commodities"),options).then(response => {
+      // JSON responses are automatically parsed.
+      this.commodities = response.data
+    }),
+    
+    
 console.log("HI");
 console.log(this.posts.slice(0).familyName);
+
 
 }
   }

@@ -1,13 +1,47 @@
 <template>
 <html>
+  <div>
 <navigation-bar/>
-<h1>{{msg}}</h1>
+</div>
+<div>
+  <categorie-nav-bar/>
+  </div>
+    
+    <div>
+      <slider-temp/>
+    </div>
+      
+ <!-- <div>
+    <slide-home-page/>
+    </div> -->
+
+    <div>
+      <him-her/>
+    </div>
+  
+
+
+
+
+    
+<!--<h1>{{msg}}</h1>
 <p>This is the product search page</p>
+
+
 <!--<employee-table />--->
 <!--<aside><example-component/></aside>-->
-<div class="fam"><family-image/></div>
-<aside><employee-table /></aside>
+<!--<div class="fam"><family-image/></div> -->
+
+<button v-on:click="login">Hi</button>
+<p>{{posts}}</p>
+<!--<div>
+<aside><employee-table /></aside></div> -->
+
+<div class="foo">
+  <employee-table />
+</div>
 </html>
+
 </template>
 
 <script>
@@ -15,9 +49,33 @@ import EmployeeTable from '@/components/EmployeeTable.vue'
 import ExampleComponent from '@/components/ExampleComponent.vue'
 import NavigationBar from '@/components/NavigatonBar.vue'
 import FamilyImage from '@/components/FamilyImage.vue'
+import Categories from '@/components/Categories.vue'
+import CategorieNavBar from '@/components/CategorieNavBar.vue'
+import SlideHomePage from '@/components/SlideHomePage.vue'
+import HimHer from '@/components/HimHer.vue'
+import axios from 'axios';
+import { Hooper, Slide } from  'hooper'
+import HooperSlide from '@/components/HooperSlide.vue'
+import SliderTemp from '@/components/SliderTemp.vue'
+
+const options = {
+  headers: {'Access-Control-Allow-Origin': '*'}
+};
 
 export default {
+  
 methods: {
+  login: function() {
+axios.post("file.html", {
+      body: "Hi"
+    })
+    
+     // axios.get("http://127.0.0.1:5000/voiceSearch/",options)
+      //  .then(response => {
+      // JSON responses are automatically parsed.
+     // this.posts = response.data
+    //})
+    },
     handleScroll (event) {
       // Any code to be executed when the window is scrolled
     }
@@ -32,19 +90,22 @@ methods: {
   name: 'Markdown',
   preserveWhitespace: false,
   components: {
-      EmployeeTable,ExampleComponent,NavigationBar,FamilyImage
+      EmployeeTable,ExampleComponent,NavigationBar,FamilyImage,Categories,CategorieNavBar,SlideHomePage,HimHer,  Hooper,HooperSlide,
+      Slide,SliderTemp
     },
   data () {
     return {
-      msg: 'Welcome to team Enceladus'
+      msg: 'Welcome to team Enceladus',
+      posts:[]
     }
   }
 }
+console.log("AAAAAAAAAA");
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1, h2 {
+/*h1, h2 {
   font-weight: normal;
 }
 ul {
@@ -57,7 +118,7 @@ li {
 }
 a {
   color: #42b983;
-}
+}*/
 
 aside {
  /* float: auto;
@@ -67,8 +128,9 @@ aside {
             top: 50%; 
             left: 50%; 
             margin-top: -100px; 
-            margin-left: -200px; */
-            position: absolute;
+            margin-left: -200px; 
+            position: absolute;*/
+            position: fixed;
             bottom:0px;
             right:0px;
 }

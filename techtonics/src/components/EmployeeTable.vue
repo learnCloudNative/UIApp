@@ -1,4 +1,5 @@
 <template>
+<footer>
   <div id="employee-table">
 
 <div><h4 style="color:blue">Team Enceladus</h4></div>
@@ -130,9 +131,8 @@
 
  
   </div>
+  </footer>
 </template>
-console.log("hi")
-import FetchData from '@/components/FetchData.js'
 
 <script>
   export default {
@@ -152,7 +152,7 @@ table, th, td {
 
 .flex-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 img{

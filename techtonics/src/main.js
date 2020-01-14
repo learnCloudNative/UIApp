@@ -23,6 +23,20 @@ Vue.use(VueRouter)
 //import the hello component
 import Hello from './components/HelloWorld'
 import About from './components/About'
+import ClothingPage from './components/ClothingPage'
+import FootwarePage from './components/FootwarePage'
+import LagguagePage from './components/LagguagePage'
+import PersonalCarePage from './components/PersonalCarePage'
+import SweingAccessorriesPage from './components/SweingAccessorriesPage'
+
+import CategorieNavBar from './components/CategorieNavBar.vue'
+import ComingSoon from './components/ComingSoon.vue'
+
+export var globalStore = new Vue({
+  data: {
+    globalvar: 'Hello'
+  }
+})
 
 const options = {
   transformAssetUrls: {
@@ -44,7 +58,15 @@ const options = {
 const routes = [
 //define the root url of the application.
 { path: '/', component: Hello },
-{ path: '/about', component: About }
+{ path: '/about', component: About },
+{ path: '/ClothingPage', component: ClothingPage },
+{ path: '/FootwarePage', component: FootwarePage },
+{ path: '/LagguagePage', component: LagguagePage },
+{ path: '/CategorieNavBar', component: CategorieNavBar },
+{ path: '/ComingSoon', component: ComingSoon },
+{ path: '/PersonalCarePage', component: PersonalCarePage },
+{ path: '/SweingAccessorriesPage', component: SweingAccessorriesPage }
+
 ]
 // Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's

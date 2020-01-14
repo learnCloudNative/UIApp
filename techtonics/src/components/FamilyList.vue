@@ -1,9 +1,14 @@
 <template>
-  <b-nav-item-dropdown text="Categories" right>
-          <b-dropdown-item v-for ="post of posts.slice(0, 6)" href="#" overflow: scroll> {{post.familyName}} 
-            <hr><br>
+  <b-nav-item-dropdown text="Categories" left>
+    <div class="dditem"  >
+          <b-dropdown-item  v-for ="post of posts.slice(0, 6)"  overflow: scroll> 
+            <b-link  v-if="post.familyID == 53110000" to="FootwarePage"><b-dropdown-text class="drop" >{{post.familyName}}</b-dropdown-text></b-link>
+            <b-link v-if="post.familyID == 53100000" to="/ClothingPage"><b-dropdown-text class="drop" >{{post.familyName}}</b-dropdown-text></b-link>
+            <b-link  v-if="post.familyID == 53120000" to="LagguagePage"><b-dropdown-text class="drop" >{{post.familyName}}</b-dropdown-text></b-link>
+            <b-link v-if="post.familyID == 53140000" to="/SweingAccessorriesPage"><b-dropdown-text class="drop" >{{post.familyName}}</b-dropdown-text></b-link>
+            <b-link v-if="post.familyID == 53130000" to="/PersonalCarePage"><b-dropdown-text class="drop" >{{post.familyName}}</b-dropdown-text></b-link>
           </b-dropdown-item>
-	
+	</div>
   </b-nav-item-dropdown>
 </template>
 <!---
@@ -70,5 +75,13 @@ export default {
 table, th, td {
   border: 1px solid black;
 }
+.drop {
+  background-color: #ffcc80;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  font-weight:bold !important;
+}
+.dditem{ padding: 0 !important;; 
+   margin: 0 !important;}
 
 </style>
