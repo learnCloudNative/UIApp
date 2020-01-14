@@ -56,7 +56,7 @@ import axios from 'axios';
       
     putData:function(text) {
       console.log(text)
-     axios.get("http://localhost:9000/api/uiSearchPOST/".concat(text),options).then(response => {
+     axios.get(process.env.VUE_APP_URL.concat("/api/uiSearchPOST/").concat(text),options).then(response => {
       // JSON responses are automatically parsed.
       this.commodities = response.data
        this.$forceUpdate();

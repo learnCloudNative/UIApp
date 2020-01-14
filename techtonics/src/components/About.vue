@@ -286,11 +286,11 @@ export default {
       headers: { "Access-Control-Allow-Origin": "*" }
     };
     axios
-      .get("http://localhost:9000/api/uiSearchGET/", options)
+      .get(process.env.VUE_APP_URL.concat("/api/uiSearchGET/"), options)
       .then(response => {
         this.searchString = response.data.item;
         return axios.get(
-          "http://localhost:9000/api/commodities/itemsDynamicSearch/".concat(
+          process.env.VUE_APP_URL.concat("/api/commodities/itemsDynamicSearch/").concat(
             response.data.item
           )
         ); // using response.data

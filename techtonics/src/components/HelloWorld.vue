@@ -66,9 +66,6 @@ export default {
   
 methods: {
   login: function() {
-axios.post("file.html", {
-      body: "Hi"
-    })
     
      // axios.get("http://127.0.0.1:5000/voiceSearch/",options)
       //  .then(response => {
