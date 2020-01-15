@@ -86,7 +86,7 @@ Vue.forceUpdate();
             
             
             </b-button>
-          <!--<span>Picked: {{ picked }}</span>-->
+          <span>Picked: {{ picked }}</span>
         </b-nav-form>
 
         <b-nav-item-dropdown text="Lang" right>
@@ -139,14 +139,17 @@ import Categories from '@/components/Categories.vue'
     methods: {
       
     putData:function() {
+      console.log("hi")
      axios.get(process.env.VUE_APP_URL.concat("/api/uiSearchPOST/").concat(this.picked),options).then(response => {
       // JSON responses are automatically parsed.
       this.commodities = response.data
-       this.$forceUpdate();
-       this.$router.push('about')
-    })
-    //setTimeout( () => this.$router.push({ href: '/about'}), 200);
       
+        
+       
+    })
+    //setTimeout( () => this.$router.push({ href: '/about'}), 10000);
+     this.$forceUpdate();
+        this.$router.push('about') ;
     }},
   
 created() {

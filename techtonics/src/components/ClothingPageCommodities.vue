@@ -52,7 +52,6 @@ import axios from 'axios';
   export default {
   preserveWhitespace: false,
     name: 'clothing-page-commodities',
-    
     methods: {
       
     putData:function(text) {

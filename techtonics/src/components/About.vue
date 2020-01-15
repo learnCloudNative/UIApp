@@ -282,6 +282,7 @@ export default {
     }
   },
   created() {
+    console.log("hi")
     const options = {
       headers: { "Access-Control-Allow-Origin": "*" }
     };
@@ -298,9 +299,10 @@ export default {
       .then(response => {
         this.item_list = response.data;
         console.log("Response", response.data);
+        this.$router.push('about')
+      
       });
-      this.$router.push('about')
-    
+      
       
     // axios.get("http://localhost:9000/api/uiSearchGET/",options).then(response => {
     //     // JSON responses are automatically parsed.
