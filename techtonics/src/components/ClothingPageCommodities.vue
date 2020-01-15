@@ -20,20 +20,20 @@
 
 <div class="flex-container">
  
- <a href="/about"><div class="flex-container1" v-on:click="putData('jacket')" > 
+ <div class="flex-container1" v-on:click="putData('jacket')" >
 
   <img class="jkt" src="@/assets/sale_jacket.jpg" alt="" >
  
-  </div> </a>
-  <a href="/about"><div class="flex-container2" v-on:click="putData('shirt')">
+  </div> 
+  <div class="flex-container2" v-on:click="putData('shirt')">
 <img class="tee" src="@/assets/tshirt_men.png" alt="" >
-</div></a>
-<a href="/about"><div class="flex-container3" v-on:click="putData('formal')">
+</div>
+<div class="flex-container3" v-on:click="putData('formal')">
 <img  class="womenformal" src="@/assets/women_formal.png" alt="" >
-</div></a>
-<a href="/about"><div class="flex-container4" v-on:click="putData('cole')">
+</div>
+<div class="flex-container4" v-on:click="putData('cole')">
 <img  class="menformal" src="@/assets/mens_formal.png" alt="" >
-</div></a>
+</div>
 </div>
 
 </div>
@@ -44,6 +44,7 @@
 
 
 <script>
+
 const options = {
   headers: {'Access-Control-Allow-Origin': '*'}
 };
@@ -59,10 +60,13 @@ import axios from 'axios';
      axios.get(process.env.VUE_APP_URL.concat("/api/uiSearchPOST/").concat(text),options).then(response => {
       // JSON responses are automatically parsed.
       this.commodities = response.data
-       this.$forceUpdate();
+      this.$forceUpdate();
+        this.$router.push('about') 
+        
+       
     })
-    setTimeout( () => this.$router.push({ href: '/about'}), 2000);
-      
+    //setTimeout( () => this.$router.push({ href: '/about'}), 10000);
+     
     }},
   }
 </script>

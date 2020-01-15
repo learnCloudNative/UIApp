@@ -6,8 +6,8 @@
   <div ><img  src="@/assets/clothing_logo_img.jpg" alt="" ></a></div>
 </div>
   <div class="flex-container">
-  <div v-on:click="putData('women')" ><a href="/about"><img  src="@/assets/cloth_her.png" alt="" ></a></div>
-  <div v-on:click="putData('men')" ><a href="/about"><img  src="@/assets/cloth_him.png" alt="" ></a></div>
+  <div v-on:click="putData('women')" ><img  src="@/assets/cloth_her.png" alt="" ></div>
+  <div v-on:click="putData('men')" ><img  src="@/assets/cloth_him.png" alt="" ></div>
 </div>
  <div class="flex-container">
   <div> <img  src="@/assets/clothing_logo_img.jpg" alt="" ></div>
@@ -56,12 +56,13 @@ import axios from 'axios';
       
     putData:function(text) {
       console.log(text)
-     axios.get(process.env.VUE_APP_URL.concat("api/uiSearchPOST/").concat(text),options).then(response => {
+     axios.get(process.env.VUE_APP_URL.concat("/api/uiSearchPOST/").concat(text),options).then(response => {
       // JSON responses are automatically parsed.
       this.commodities = response.data
        this.$forceUpdate();
+       this.$router.push('about')
     })
-    setTimeout( () => this.$router.push({ href: '/about'}), 2000);
+    //setTimeout( () => this.$router.push('/about'), 10000);
       
     }},
   }

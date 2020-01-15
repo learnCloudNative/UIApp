@@ -299,7 +299,9 @@ export default {
         this.item_list = response.data;
         console.log("Response", response.data);
       });
-
+      this.$router.push('about')
+    
+      
     // axios.get("http://localhost:9000/api/uiSearchGET/",options).then(response => {
     //     // JSON responses are automatically parsed.
     //    return  this.searchString = response.data.item

@@ -139,12 +139,13 @@ import Categories from '@/components/Categories.vue'
     methods: {
       
     putData:function() {
-     axios.get("http://localhost:9000/api/uiSearchPOST/".concat(this.picked),options).then(response => {
+     axios.get(process.env.VUE_APP_URL.concat("/api/uiSearchPOST/").concat(this.picked),options).then(response => {
       // JSON responses are automatically parsed.
       this.commodities = response.data
        this.$forceUpdate();
+       this.$router.push('about')
     })
-    setTimeout( () => this.$router.push({ href: '/about'}), 200);
+    //setTimeout( () => this.$router.push({ href: '/about'}), 200);
       
     }},
   
