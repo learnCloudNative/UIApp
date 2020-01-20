@@ -3,7 +3,7 @@
     <navigation-bar />
 
     <div>
-      <h2>You have searched for:{{searchString}}</h2>
+      
       <!--<b-row v-for="item in item_list">
     <b-col>
       {{item.itemNumber}}
@@ -14,48 +14,40 @@
     <div class="flex-nav1">
       <b-breadcrumb :items="items"></b-breadcrumb>
     </div>
-
+<h4>Displaying Product Items : <b>{{searchString}}</b></h4>
     <div class="flex-contain">
+      
       <div class="flex-filter">
         <ul class="filter-list" style="text-align: left">
           <p>Color</p>
           <hr />
           <li>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Black</label>
+             <a href="/about"> <button class="button"  variant="outline-danger" info="Green"  v-on:click="putData('green')" ></button></a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Green</label>
+              <a href="/about"> <button class="button button2"  variant="outline-danger" info="Blue"  v-on:click="putData('blue')"></button> </a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Yellow</label>
+              <a href="/about"> <button class="button button3"  variant="outline-danger" info="Red" v-on:click="putData('red')"></button> </a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Blue</label>
+               <a href="/about"><button class="button button4"  variant="outline-danger" info="grey" v-on:click="putData('grey')"></button></a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Gray</label>
+               <a href="/about"><button class="button button5"  variant="outline-danger" info="black" v-on:click="putData('black')"></button></a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>White</label>
+              <a href="/about"> <button class="button button6"  variant="outline-danger" info="yellow" v-on:click="putData('yellow')"></button></a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Red</label>
+              <a href="/about"> <button class="button button7"  variant="outline-danger" info="darkgreen" v-on:click="putData('dark green')"></button></a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Wine Red</label>
+                <a href="/about"><button class="button button8"  variant="outline-danger" info="white" v-on:click="putData('white')"></button></a>
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Dark Green</label>
+              <a href="/about"> <button class="button button9"  variant="outline-danger" info="winered" v-on:click="putData('wine red')"></button></a>
             </div>
           </li>
           <br />
@@ -64,44 +56,44 @@
           <hr />
           <li>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Medium</label>
+                <a href="/about"> <button class="button button10"  variant="outline-danger" info="small" v-on:click="putData('small')">Small</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Large</label>
+               <a href="/about"> <button class="button button11"  variant="outline-danger" info="medium" v-on:click="putData('medium')">Medium</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>Small</label>
+               <a href="/about"> <button class="button button12"  variant="outline-danger" info="large" v-on:click="putData('large')">Large</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>XL</label>
+                <a href="/about"> <button class="button button13"  variant="outline-danger" info="XL" v-on:click="putData('XL')">XL</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>XXLarge</label>
+            <a href="/about"> <button class="button button14"  variant="outline-danger" info="XXL" v-on:click="putData('XXL')">XXL</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>38 Short</label>
+             <a href="/about"> <button class="button button15"  variant="outline-danger" info="38Short" v-on:click="putData('38 Short')">38 Short</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>40 Regular</label>
+  <a href="/about"> <button class="button button16"  variant="outline-danger" info="38Long" v-on:click="putData('38 Long')">38 Long</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>40 Long</label>
+              <a href="/about"> <button class="button button17"  variant="outline-danger" info="40Short" v-on:click="putData('40 Short')">40 Short</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>50 Long</label>
+              <a href="/about"> <button class="button button18"  variant="outline-danger" info="40Long" v-on:click="putData('40 Long')">40 Long</button></a>
+
             </div>
             <div>
-              <input type="checkbox" name="vehicle1" value="Bike" />
-              <label>38 Long</label>
+          <a href="/about"> <button class="button button19"  variant="outline-danger" info="50" v-on:click="putData('50')">50</button></a>
+
             </div>
           </li>
         </ul>
@@ -154,14 +146,44 @@
 <script>
 import NavigationBar from "@/components/NavigatonBar.vue";
 import axios from "axios";
-
+const options = {
+  headers: {'Access-Control-Allow-Origin': '*'}
+};
 export default {
+  
+  mounted: function() {
+        this.askLoad() // Calls the method before page loads
+    },
+    methods: {
+        // Declares the method
+        askLoad: function(){
+     
+         
+        },
+
+         putData:function(color) {
+      console.log("hi")
+     axios.get(process.env.VUE_APP_URL.concat("/api/uiSearchPOST/").concat(color),options).then(response => {
+      // JSON responses are automatically parsed.
+      this.commodities = response.data
+      
+        
+       
+    });
+    //setTimeout( () => this.$router.push({ href: '/about'}), 10000);
+     this.$forceUpdate();
+      //  this.$router.push('about') ;
+    }
+    },
   components: {
     NavigationBar
   },
   name: "about",
   data() {
+    
     return {
+      Bike:null,
+     
       items: [
         {
           text: "Home",
@@ -274,7 +296,9 @@ export default {
     };
   },
   computed: {
+
     groupedArticles: function() {
+      
       console.log(this.item_list[0]);
       return _.chunk(this.item_list, 5);
       // returns a nested array:
@@ -282,6 +306,8 @@ export default {
     }
   },
   created() {
+   //setTimeout( () => this.$router.push({ path: '/abour'}), 8000);
+
     console.log("hi")
     const options = {
       headers: { "Access-Control-Allow-Origin": "*" }
@@ -299,7 +325,8 @@ export default {
       .then(response => {
         this.item_list = response.data;
         console.log("Response", response.data);
-        this.$router.push('about')
+       // this.$router.push('about')
+       
       
       });
       
@@ -394,7 +421,7 @@ ul {
 }
 .filter-list {
   list-style-type: none;
-  padding-left: 0;
+  padding-left: 0px;
 }
 
 #zoom {
@@ -409,4 +436,49 @@ ul {
     1.01
   ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+#about{background-color:#cfb7b73f;}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+.button6 {background-color: #ffff66;} /*yello*/
+.button7 {background-color:  #006622;} /* Dark Green*/
+.button8 {background-color: #f2f2f2; color: black;} /*White*/
+.button9 {background-color: #b11226; } /*Wine Red*/
+
+
+.button10 {background-color: #e6e6e6;padding: 10px 10px !important;color: black; border: 1px; border-style: solid;} /* Blue */
+.button11 {background-color:  #e6e6e6;padding: 10px 10px !important;color: black; border: 1px; border-style: solid;} /* Red */ 
+.button12 {background-color: #e6e6e6;padding: 10px 28px !important;color: black; border: 1px; border-style: solid;} /* Gray */ 
+.button13 {background-color:  #e6e6e6; padding: 10px 48px !important;color: black; border: 1px; border-style: solid;} /* Black */
+.button14 {background-color:  #e6e6e6;padding: 10px 50px !important;color: black;border: 1px; border-style: solid; } /* Blue */
+.button15 {background-color:  #e6e6e6; padding: 10px 10px !important;color: black; border: 1px; border-style: solid;} /* Red */ 
+.button16 {background-color:  #e6e6e6; padding:  10px 10px !important;color: black; border: 1px; border-style: solid;} /* Gray */ 
+.button17 {background-color:  #e6e6e6;padding:  10px 20px !important;color: black;border: 1px; border-style: solid;} /* Black */
+.button18 {background-color:  #e6e6e6;padding:10px 20px !important; color: black;border: 1px; border-style: solid;} /* Gray */ 
+.button19 {background-color:  #e6e6e6; padding: 10px 53px !important;color: black; border: 1px; border-style: solid;} /* Black */
+
+
+
+
+
+h4{
+  padding: 10px 10px 10px 10px;
+}
+
 </style>

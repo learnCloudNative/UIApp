@@ -1,7 +1,7 @@
 <template>
 
 
-  <div>
+  <div id="bkg-col">
     <div><img  src="@/assets/clothing_logo_img.jpg" alt="" >
     <img  class='banner' src="@/assets/dis_img.png" alt="" >
     </div>
@@ -134,5 +134,6 @@ import axios from 'axios';
    width:90%
   
 }
+#bkg-col{background-color:#cfb7b73f;}
 
 </style>
